@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="https://cdn.shopify.com/shopifycloud/checkout-web/assets/app-bridge-checkout.js"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <button class="activator">Message us</button>
+    <div class="dialog">
+      <div class="dialog-header">
+        <h1>Message us</h1>
+        <button class="dialog-close">X</button>
+      </div>
+      <div class="dialog-content">
+        <div class="message-list">
+          <div class="message message-sent">
+            <strong>You: </strong>
+            Could you recommend any wax for the snowboard I have in my cart?
+          </div>
+          <div class="message message-received">
+            <strong>Bob: </strong>
+            What about this one. It's purple and who doesn't like purple, right?
+            <a
+              href="https://checkout-extensibility-chat-demo.myshopify.com/products/selling-plans-ski-wax?variant=41354625482848"
+              target="_blank"
+              >product page</a
+            >.
+            <details>
+              <summary>More options</summary>
+              <ul>
+                <li>
+                  <a href="https://checkout-extensibility-chat-demo.myshopify.com/products/selling-plans-ski-wax?variant=41354625482848"
+                    >✅ no target set</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://checkout-extensibility-chat-demo.myshopify.com/products/selling-plans-ski-wax?variant=41354625482848"
+                    target="_blank"
+                    >✅ target="_blank"</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://checkout-extensibility-chat-demo.myshopify.com/products/selling-plans-ski-wax?variant=41354625482848"
+                    target="_self"
+                    >✅ target="_self"</a
+                  >
+                </li>
+                <!-- <li>
+                  <a href="/" target="_self"
+                    >✅ target="_self" and same origin as iframe</a
+                  >
+                </li> -->
+                <li>
+                  <a
+                    href="https://checkout-extensibility-chat-demo.myshopify.com/products/selling-plans-ski-wax?variant=41354625482848"
+                    target="_top"
+                    >✅ target="_top"</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://checkout-extensibility-chat-demo.myshopify.com/products/selling-plans-ski-wax?variant=41354625482848"
+                    target="_parent"
+                    >✅ target="_parent"</a
+                  >
+                </li>
+                <li>
+                  <a
+                    onClick="window.open('https://checkout-extensibility-chat-demo.myshopify.com/products/selling-plans-ski-wax?variant=41354625482848', '_blank');"
+                    >✅ open() and blank</a
+                  >
+                </li>
+                <li>
+                  <a
+                    onClick="window.open('https://checkout-extensibility-chat-demo.myshopify.com/products/selling-plans-ski-wax?variant=41354625482848', '_self');"
+                    >✅ open() and self</a
+                  >
+                </li>
+                <!-- <li>
+                  <a onClick="window.open(window.location.href, '_self');"
+                    >✅ open() and self, same origin</a
+                  >
+                </li> -->
+                <li>
+                  <a
+                    onClick="window.open('https://checkout-extensibility-chat-demo.myshopify.com/products/selling-plans-ski-wax?variant=41354625482848', '_top');"
+                    >✅ open() and top</a
+                  >
+                </li>
+                <li>
+                  <a
+                    onClick="window.open('https://checkout-extensibility-chat-demo.myshopify.com/products/selling-plans-ski-wax?variant=41354625482848', '_parent');"
+                    >✅ open() and parent</a
+                  >
+                </li>
+                <li>
+                  <a onClick="window.open();">✅ open()</a>
+                </li>
+                <li>
+                  <a
+                    onClick="window.top.location.replace('https://checkout-extensibility-chat-demo.myshopify.com/products/selling-plans-ski-wax?variant=41354625482848');"
+                    >🚫 top.location.replace()</a
+                  >
+                </li>
+                <li>
+                  <a
+                    onClick="javascript: window.parent.location.replace('https://checkout-extensibility-chat-demo.myshopify.com/products/selling-plans-ski-wax?variant=41354625482848');"
+                    >🚫 parent.location.replace()</a
+                  >
+                </li>
+                <li>
+                  <a
+                    onClick="window.top.location.assign('https://checkout-extensibility-chat-demo.myshopify.com/products/selling-plans-ski-wax?variant=41354625482848');"
+                    >🚫 top.location.assign()</a
+                  >
+                </li>
+                <li>
+                  <a
+                    onClick="window.parent.location.assign('https://checkout-extensibility-chat-demo.myshopify.com/products/selling-plans-ski-wax?variant=41354625482848');"
+                    >🚫 parent.location.assign()</a
+                  >
+                </li>
+              </ul>
+            </details>
+          </div>
+          <div class="message message-sent">
+            <strong>You: </strong>
+            Thank you!
+          </div>
+          <div class="message message-received">
+            <strong>Bob: </strong>
+            Try to resize Chat widget to <a onClick="window.resizeTo(999,999)">999px by 999px</a>
+          </div>
+        </div>
+      </div>
+      <div class="dialog-footer">
+        <form
+          onSubmit="console.log('iframe form submitted'); return false;"
+          class="form-message"
+        >
+          <label for="message-input">Write message...</label>
+          <input
+            name="message"
+            id="message-input"
+            placeholder="Write message..."
+          />
+          <button type="submit" class="button">Send</button>
+        </form>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      const activator = document.querySelector(".activator");
+      const dialog = document.querySelector(".dialog");
+      const dialogClose = document.querySelector(".dialog-close");
+
+      activator.addEventListener("click", toggleDialog);
+      dialogClose.addEventListener("click", toggleDialog);
+
+      const resizeObserver = new ResizeObserver((entries) => {
+        for (let entry of entries) {
+          if (entry.contentRect.width < 570) {
+            isSmallScreen = true;
+          } else {
+            isSmallScreen = false;
+          }
+          if (isSmallScreen && dialog.classList.contains("visible")) {
+            window.shopify !== undefined && window.shopify.resizeTo(9999, 9999);
+          } else if (dialog.classList.contains("visible")) {
+            window.shopify !== undefined && window.shopify.resizeTo(415, 700);
+          }
+        }
+      });
+      resizeObserver.observe(document.body);
+
+      function toggleDialog() {
+        let width;
+        let height;
+
+        if (dialog.classList.contains("visible")) {
+          window.shopify !== undefined && window.shopify.resizeTo(165, 62);
+          dialog.classList.remove("visible");
+        } else {
+          width = 415;
+          height = 700;
+
+          if (isSmallScreen) {
+            width = 9999;
+            height = 9999;
+          }
+
+          window.shopify !== undefined &&
+            window.shopify.resizeTo(width, height);
+          dialog.classList.add("visible");
+        }
+      }
+
+      /**
+       * Close dialog when esc key is pressed.
+       * Only works when iframe is active element.
+       */
+      document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape" || event.key === "Esc") {
+          if (dialog.classList.contains("visible")) {
+            window.shopify !== undefined && window.shopify.resizeTo(165, 62);
+            dialog.classList.remove("visible");
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
