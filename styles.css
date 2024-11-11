@@ -43,16 +43,10 @@
     padding: 1em 1.5em 1.5em;
     background-color: #000;
     border-radius: 1em;
-    inline-size: 100%;
-    max-inline-size: min(
-      calc(100% - 15px),
-      calc(var(--shopify-checkout-chat-maximized-max-inline-size) - 15px)
-    );
-    block-size: 100%;
-    max-block-size: min(
-      calc(100% - 30px),
-      calc(var(--shopify-checkout-chat-maximized-max-block-size) - 30px)
-    );
+    inline-size: calc(100% - 15px);
+    max-inline-size: calc(var(--shopify-checkout-chat-maximized-max-inline-size) - 15px);
+    block-size: calc(100% - 15px);
+    max-block-size: calc(var(--shopify-checkout-chat-maximized-max-block-size) - 30px);
     position: absolute;
     inset-block-end: 15px;
     inset-inline-end: 15px;
