@@ -135,6 +135,26 @@
           <div class="message message-received">
             <strong>Bob: </strong>
             Try to resize Chat widget to <a onClick="window.resizeTo(999,999)">999px by 999px</a>
+            <details>
+              <summary>More sizes</summary>
+              <ul>
+                <li>
+                  <a onClick="window.resizeTo(300,300)"
+                    >300px by 300px</a
+                  >
+                </li>
+                <li>
+                  <a onClick="window.resizeTo(500,500)"
+                    >500px by 500px</a
+                  >
+                </li>
+                <li>
+                  <a onClick="window.resizeTo(100,999)"
+                    >100px by 999px</a
+                  >
+                </li>
+              </ul>
+            </details>
           </div>
         </div>
       </div>
@@ -170,7 +190,7 @@
             isSmallScreen = false;
           }
           if (isSmallScreen && dialog.classList.contains("visible")) {
-            window.shopify !== undefined && window.shopify.resizeTo(9999, 9999);
+            window.shopify !== undefined && window.shopify.resizeTo(window.innerWidth, window.innerHeight);
           } else if (dialog.classList.contains("visible")) {
             window.shopify !== undefined && window.shopify.resizeTo(415, 700);
           }
@@ -190,8 +210,8 @@
           height = 700;
 
           if (isSmallScreen) {
-            width = 9999;
-            height = 9999;
+            width = window.innerWidth;
+            height = window.innerHeight;
           }
 
           window.shopify !== undefined &&
