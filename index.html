@@ -134,23 +134,23 @@
           </div>
           <div class="message message-received">
             <strong>Bob: </strong>
-            Try to resize Chat widget to <a onClick="window.resizeTo(999,999)">999px by 999px</a>
+            Try to resize Chat widget to <a onClick="resizeIframeAndDialog(999, 999)">999px by 999px</a>
             <details>
               <summary>More sizes</summary>
               <ul>
                 <li>
-                  <a onClick="window.resizeTo(300,300)"
+                  <a onClick="resizeIframeAndDialog(300,300)"
                     >300px by 300px</a
                   >
                 </li>
                 <li>
-                  <a onClick="window.resizeTo(500,500)"
+                  <a onClick="resizeIframeAndDialog(500,500)"
                     >500px by 500px</a
                   >
                 </li>
                 <li>
-                  <a onClick="window.resizeTo(100,999)"
-                    >100px by 999px</a
+                  <a onClick="resizeIframeAndDialog(300,9999)"
+                    >300px by 9999px</a
                   >
                 </li>
               </ul>
@@ -214,10 +214,17 @@
             height = window.innerHeight;
           }
 
-          window.shopify !== undefined &&
-            window.shopify.resizeTo(width, height);
+          resizeIframeAndDialog(width, height);
           dialog.classList.add("visible");
         }
+      }
+
+      function resizeIframeAndDialog(width, height) {
+        window.shopify !== undefined &&
+            window.shopify.resizeTo(width, height);
+
+        dialog.style.setProperty('--dialog-inline-size', `${width}px`);
+        dialog.style.setProperty('--dialog-block-size', `${height}px`);
       }
 
       /**
@@ -239,6 +246,7 @@
        */
        window.addEventListener("load", function (event) {
         if (!dialog.classList.contains("visible")) {
+          console.log("Developer attempted to resize dialog on load of the iframe.");
           window.shopify !== undefined && window.shopify.resizeTo(415, 700);
           dialog.classList.add("visible");
         }
