@@ -232,6 +232,17 @@
           }
         }
       });
+
+      /**
+       * Try to resize iframe on load of the application.
+       * In a UI Extension context, this will not work.
+       */
+       window.addEventListener("load", function (event) {
+        if (!dialog.classList.contains("visible")) {
+          window.shopify !== undefined && window.shopify.resizeTo(415, 700);
+          dialog.classList.add("visible");
+        }
+      });
     </script>
   </body>
 </html>
