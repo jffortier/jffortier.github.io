@@ -223,8 +223,8 @@
         window.shopify !== undefined &&
             window.shopify.resizeTo(width, height);
 
-        dialog.style.setProperty('--dialog-inline-size', `${width}px`);
-        dialog.style.setProperty('--dialog-block-size', `${height}px`);
+        dialog.style.setProperty('--dialog-inline-size', `${width - 15}px`);
+        dialog.style.setProperty('--dialog-block-size', `${height - 15}px`);
       }
 
       /**
@@ -248,7 +248,6 @@
         if (!dialog.classList.contains("visible")) {
           console.log("Developer attempted to resize dialog on load of the iframe.");
           window.shopify !== undefined && window.shopify.resizeTo(415, 700);
-          dialog.classList.add("visible");
         }
       });
     </script>
