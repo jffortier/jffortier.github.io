@@ -34,7 +34,7 @@
     background-color: #111;
   }
 
-  .activator:focus-visible {
+  .activator:focus {
     outline: 2px #000 solid;
     outline-offset: 2px;
   }
@@ -44,15 +44,17 @@
     background-color: #000;
     border-radius: 1em;
     inline-size: 100%;
-    max-inline-size: min(
-      var(--dialog-inline-size, calc(100% - 15px)),
-      calc(var(--shopify-checkout-chat-maximized-max-inline-size) - 15px)
-    );
+    max-inline-size: calc(min(
+      100%,
+      var(--dialog-inline-size),
+      calc(var(--shopify-checkout-chat-maximized-max-inline-size))
+    ) - 15px);
     block-size: 100%;
-    max-block-size: min(
-      var(--dialog-block-size, calc(100% - 30px)),
-      calc(var(--shopify-checkout-chat-maximized-max-block-size) - 30px)
-    );
+    max-block-size: calc(min(
+      100%,
+      var(--dialog-block-size),
+      var(--shopify-checkout-chat-maximized-max-block-size)
+    ) - 15px);
     position: absolute;
     inset-block-end: 15px;
     inset-inline-end: 15px;
@@ -61,10 +63,16 @@
     grid-template-rows: auto 1fr auto;
 
     @media screen and (max-width: 569px) {
-      inline-size: 100%;
-      max-inline-size: var(--shopify-checkout-chat-maximized-max-inline-size);
-      block-size: 100%;
-      max-block-size: var(--shopify-checkout-chat-maximized-max-block-size);
+      max-inline-size: min(
+        100%,
+        var(--dialog-inline-size),
+        calc(var(--shopify-checkout-chat-maximized-max-inline-size))
+      );
+      max-block-size: min(
+        100%,
+        var(--dialog-block-size),
+        var(--shopify-checkout-chat-maximized-max-block-size)
+      );
       inset-inline-end: 0;
       inset-block-end: 0;
       border-end-end-radius: 0;
@@ -104,7 +112,7 @@
   }
 
   .dialog-content {
-    overflow: scroll;
+    overflow: auto;
   }
 
   .dialog-footer {

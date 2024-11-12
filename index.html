@@ -17,19 +17,16 @@
       <div class="dialog-content">
         <div class="message-list">
           <div class="message message-sent">
-            <strong>You: </strong>
             Could you recommend any wax for the snowboard I have in my cart?
           </div>
           <div class="message message-received">
-            <strong>Bob: </strong>
-            What about this one. It's purple and who doesn't like purple, right?
-            <a
+            What about this one? <a
               href="https://checkout-extensibility-chat-demo.myshopify.com/products/selling-plans-ski-wax?variant=41354625482848"
               target="_blank"
-              >product page</a
+              >Selling Plans Ski Wax</a
             >.
             <details>
-              <summary>More options</summary>
+              <summary>More link target options</summary>
               <ul>
                 <li>
                   <a href="https://checkout-extensibility-chat-demo.myshopify.com/products/selling-plans-ski-wax?variant=41354625482848"
@@ -50,11 +47,6 @@
                     >✅ target="_self"</a
                   >
                 </li>
-                <!-- <li>
-                  <a href="/" target="_self"
-                    >✅ target="_self" and same origin as iframe</a
-                  >
-                </li> -->
                 <li>
                   <a
                     href="https://checkout-extensibility-chat-demo.myshopify.com/products/selling-plans-ski-wax?variant=41354625482848"
@@ -81,11 +73,6 @@
                     >✅ open() and self</a
                   >
                 </li>
-                <!-- <li>
-                  <a onClick="window.open(window.location.href, '_self');"
-                    >✅ open() and self, same origin</a
-                  >
-                </li> -->
                 <li>
                   <a
                     onClick="window.open('https://checkout-extensibility-chat-demo.myshopify.com/products/selling-plans-ski-wax?variant=41354625482848', '_top');"
@@ -129,12 +116,10 @@
             </details>
           </div>
           <div class="message message-sent">
-            <strong>You: </strong>
             Thank you!
           </div>
           <div class="message message-received">
-            <strong>Bob: </strong>
-            Try to resize Chat widget to <a onClick="resizeIframeAndDialog(999, 999)">999px by 999px</a>
+            Resize Chat widget to <a onClick="resizeIframeAndDialog(999, 999)">999px by 999px</a>
             <details>
               <summary>More sizes</summary>
               <ul>
@@ -205,6 +190,7 @@
         if (dialog.classList.contains("visible")) {
           window.shopify !== undefined && window.shopify.resizeTo(165, 62);
           dialog.classList.remove("visible");
+          activator.focus();
         } else {
           width = 415;
           height = 700;
@@ -223,8 +209,8 @@
         window.shopify !== undefined &&
             window.shopify.resizeTo(width, height);
 
-        dialog.style.setProperty('--dialog-inline-size', `${width - 15}px`);
-        dialog.style.setProperty('--dialog-block-size', `${height - 15}px`);
+        dialog.style.setProperty('--dialog-inline-size', `${width}px`);
+        dialog.style.setProperty('--dialog-block-size', `${height}px`);
       }
 
       /**
@@ -236,6 +222,7 @@
           if (dialog.classList.contains("visible")) {
             window.shopify !== undefined && window.shopify.resizeTo(165, 62);
             dialog.classList.remove("visible");
+            activator.focus();
           }
         }
       });
@@ -246,7 +233,7 @@
        */
        window.addEventListener("load", function (event) {
         if (!dialog.classList.contains("visible")) {
-          console.log("Developer attempted to resize dialog on load of the iframe.");
+          console.log("Iframe content attempted to resize dialog on load of the iframe. This was blocked in Checkout.");
           window.shopify !== undefined && window.shopify.resizeTo(415, 700);
         }
       });
