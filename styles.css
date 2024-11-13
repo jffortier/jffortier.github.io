@@ -27,16 +27,17 @@
     position: absolute;
     inset-block-end: 15px;
     inset-inline-end: 15px;
-  }
 
-  .activator:hover,
-  .activator:focus {
-    background-color: #111;
-  }
 
-  .activator:focus {
-    outline: 2px #000 solid;
-    outline-offset: 2px;
+    &:hover,
+    &:focus {
+      background-color: #111;
+    }
+
+    &:focus {
+      outline: 2px #000 solid;
+      outline-offset: 2px;
+    }
   }
 
   .dialog {

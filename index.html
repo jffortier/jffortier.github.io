@@ -9,7 +9,7 @@
   </head>
   <body>
     <button class="activator">Message us</button>
-    <div class="dialog">
+    <div class="dialog" tabindex="-1">
       <div class="dialog-header">
         <h1>Message us</h1>
         <button class="dialog-close">X</button>
@@ -145,7 +145,7 @@
       </div>
       <div class="dialog-footer">
         <form
-          onSubmit="console.log('iframe form submitted'); return false;"
+          onSubmit="console.log('Chat: iframe form submitted'); return false;"
           class="form-message"
         >
           <label for="message-input">Write message...</label>
@@ -202,6 +202,7 @@
 
           resizeIframeAndDialog(width, height);
           dialog.classList.add("visible");
+          dialog.focus();
         }
       }
 
